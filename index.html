@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Corvane Motors: Book your test drive</title>
+<meta name="robots" content="noindex">
+<style>
+  :root {
+    --navy: #0f1420; --navy2: #1a2233; --orange: #ff8a3d; --teal: #35d0c4; --red: #b3122a;
+    --ink: #1b2230; --muted: #5d687c; --line: #dde2ea; --bg: #f4f6f9; --card: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.45; -webkit-text-size-adjust: 100%; }
+  header { background: var(--navy); color: #fff; padding: 14px 20px; display: flex; align-items: center; gap: 10px; }
+  header .dot { width: 12px; height: 12px; background: var(--orange); transform: rotate(45deg); flex: none; }
+  header b { letter-spacing: 3px; font-size: 15px; }
+  .hero { background: linear-gradient(160deg, var(--navy) 0%, var(--navy2) 100%); color: #fff; padding: 26px 20px 74px; }
+  .hero .kick { color: var(--teal); font-weight: 700; letter-spacing: 3px; font-size: 12px; }
+  .hero h1 { margin: 6px 0 8px; font-size: 32px; line-height: 1.08; }
+  .hero h1 span { color: var(--orange); }
+  .hero p { margin: 0; color: #c9d3e2; max-width: 34em; }
+  main { max-width: 560px; margin: -52px auto 0; padding: 0 16px 32px; }
+  .card { background: var(--card); border-radius: 16px; padding: 22px 18px; box-shadow: 0 8px 30px rgba(15, 20, 32, .14); }
+  .card h2 { margin: 0 0 4px; font-size: 22px; }
+  .card .sub { margin: 0 0 16px; color: var(--muted); font-size: 15px; }
+  label { display: block; font-weight: 600; font-size: 14px; margin: 14px 0 6px; }
+  input, select { width: 100%; font: inherit; font-size: 16px; padding: 12px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--ink); }
+  input:focus, select:focus, button:focus-visible { outline: 3px solid rgba(53, 208, 196, .55); outline-offset: 1px; }
+  button { width: 100%; margin-top: 20px; font: inherit; font-weight: 700; font-size: 17px; padding: 14px; border: 0; border-radius: 12px; background: var(--navy); color: #fff; cursor: pointer; }
+  button:hover { background: #000; }
+  .perks { margin: 18px 0 0; padding: 14px 16px; background: #fff7ef; border-left: 4px solid var(--orange); border-radius: 8px; font-size: 15px; }
+  .done { display: none; text-align: center; padding: 10px 2px; }
+  .done .tick { width: 56px; height: 56px; border-radius: 50%; background: var(--teal); color: var(--navy); font-size: 30px; font-weight: 800; display: grid; place-items: center; margin: 4px auto 12px; }
+  .done h2 { margin: 0 0 6px; }
+  .done p { margin: 0 0 8px; color: var(--muted); }
+  .fine { margin: 18px 4px 0; color: var(--muted); font-size: 13px; }
+  footer { text-align: center; color: var(--muted); font-size: 12px; padding: 4px 16px 28px; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink: #e8edf5; --muted: #a2adc0; --line: #33405a; --bg: #0b0f18; --card: #151c2b; }
+    input, select { background: #0f1522; }
+    .perks { background: #2a2016; }
+    button { background: var(--orange); color: #1a1008; }
+    button:hover { background: #ff9d5c; }
+  }
+</style>
+</head>
+<body>
+<header><span class="dot"></span><b>CORVANE MOTORS</b></header>
+
+<section class="hero">
+  <div class="kick">KEY WEEKEND EVENT</div>
+  <h1>Book your <span>test drive.</span></h1>
+  <p>Saturday and Sunday only. Pick a time and we'll have the keys ready.</p>
+</section>
+
+<main>
+  <div class="card">
+    <form id="f" novalidate>
+      <h2>Reserve a time</h2>
+      <p class="sub">It takes about a minute.</p>
+
+      <label for="name">Your name</label>
+      <input id="name" name="name" autocomplete="name" placeholder="Alex Rivera">
+
+      <label for="phone">Mobile number</label>
+      <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(555) 010-0123">
+
+      <label for="model">Model</label>
+      <select id="model" name="model">
+        <option>Corvane Atlas (SUV)</option>
+        <option>Corvane Atlas Long Range</option>
+        <option>Corvane Ridge (compact SUV)</option>
+      </select>
+
+      <label for="day">Day</label>
+      <select id="day" name="day">
+        <option>Saturday, morning</option>
+        <option>Saturday, afternoon</option>
+        <option>Sunday, morning</option>
+        <option>Sunday, afternoon</option>
+      </select>
+
+      <button type="submit">Book my test drive</button>
+      <div class="perks"><b>Key Weekend Event:</b> save big on every model, Saturday and Sunday.</div>
+    </form>
+
+    <div class="done" id="done" role="status" aria-live="polite">
+      <div class="tick" aria-hidden="true">&#10003;</div>
+      <h2>You're on the list!</h2>
+      <p id="msg"></p>
+      <p>Pip will have the keys ready.</p>
+    </div>
+
+    <p class="fine"><b>This is a made-up dealership and offer for a technology demonstration.</b> Nothing you type here is sent, saved or shared. There is no real booking.</p>
+  </div>
+</main>
+<footer>Corvane Motors is fictional. Any resemblance to a real business is a coincidence.</footer>
+
+<script>
+  // Demo only: nothing leaves this page. The form just shows a confirmation.
+  document.getElementById('f').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = function (id) { return document.getElementById(id).value.trim(); };
+    var who = v('name') || 'friend';
+    document.getElementById('msg').textContent = who + ', we saved a ' + v('model') + ' test drive for ' + v('day') + '.';
+    this.style.display = 'none';
+    document.getElementById('done').style.display = 'block';
+    window.scrollTo(0, 0);
+  });
+</script>
+</body>
+</html>
